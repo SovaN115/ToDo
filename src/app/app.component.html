@@ -1,0 +1,14 @@
+<div class="h-screen ">
+  <app-side-bar #side class="absolute top-0 left-0"></app-side-bar>
+  <div class="p-4">
+    <button (click)="side.onOpen()" class="
+    bg to-blue-400 
+    rounded-md">
+      <img src="../assets/svgs/Hamburger_MD.svg" class="w-10 h-10" alt="">
+    </button>
+  </div>
+  <div class="">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+

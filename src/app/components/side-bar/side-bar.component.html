@@ -1,0 +1,15 @@
+<div [hidden]="isClosed" class="p-4 bg-white shadow-2xl rounded-md h-screen w-56">
+    <button (click)="onOpen()" class="">
+        <img src="../../../assets/svgs/Hamburger_MD.svg" alt="" class="w-10 h-10">
+    </button>
+    <div class="">
+        <ul class="text-slate-900 flex flex-col gap-2">
+            <li class="p-2 hover:bg-sky-400 hover:text-white  rounded-md">
+                Заметки
+            </li>
+            <li class="p-2 hover:bg-sky-400 hover:text-white rounded-md">
+                О приложении
+            </li>
+        </ul>
+    </div>
+</div>
