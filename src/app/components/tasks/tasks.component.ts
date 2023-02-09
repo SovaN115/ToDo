@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { TaskService } from 'src/app/services/taskService';
 import {Task} from 'src/app/services/taskService';
 
@@ -9,23 +10,16 @@ import {Task} from 'src/app/services/taskService';
   styleUrls: ['./tasks.component.css']
 })
 export class TasksComponent {
-  formInput = new FormControl();
+  route: ActivatedRoute;
+  formInput = new FormControl('', Validators.required);
 
-  constructor(public taskS: TaskService) {
-    
-  }
-
-  onEnter(event: any){
-    
-    // let el = document.querySelector('.err');
-    // if(el != null) {
-    //   el.innerHTML = event.key;
-    // }
+  constructor(public taskS: TaskService, route: ActivatedRoute) {
+    this.route = route;
   }
 
   addTask( event: any){
-    if((event.code == 'Enter' || event.key == 'Enter')&& this.formInput.value != null){
-      this.taskS.addTask(this.formInput.value)
+    if((event.code == 'Enter' || event.key == 'Enter') && this.formInput.value != null && this.formInput.valid){
+      this.taskS.addTask(this.formInput.value.trim())
       this.formInput.setValue(null);
     }
   } 

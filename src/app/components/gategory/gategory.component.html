@@ -1,0 +1,17 @@
+<div class="p-2 flex gap-2 flex-wrap">
+    <span class="hidden bg-red-400"></span>
+    <span class="hidden bg-green-400"></span>
+    <span class="hidden bg-orange-400"></span>
+    <span class="hidden bg-blue-400"></span>
+    <span class="hidden bg-indigo-400"></span>
+    <span class="hidden bg-yellow-400"></span>
+    <span class="bg-green-400 rounded-full py-1 px-4 font-semibold text-sm text-white flex items-center">
+        <img class="w-3 h-3" src="../../../assets/svgs/plus.svg" alt="">
+        <input (keyup)="addGategory($event)" [formControl]="input" class="ml-3 bg-transparent w-16 outline-none placeholder-white" placeholder="Добавить"/>
+    </span>
+    
+    <button [routerLink]="['task', category.id]" *ngFor="let category of categories" class="{{category.color}} rounded-full py-1 px-4 font-semibold text-sm text-white flex items-center">
+        {{category.title}}
+    </button>
+
+</div>
