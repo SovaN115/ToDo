@@ -21,6 +21,7 @@ export class TasksComponent {
     // if(el != null) {
     //   el.innerHTML = event.key;
     // }
+    console
   }
 
   addTask( event: any){
