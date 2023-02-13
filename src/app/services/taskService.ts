@@ -4,6 +4,7 @@ export interface Task {
   id: number
   task: string
   isDone: boolean
+  categoryId: number
 }
 
 export interface Category {
@@ -15,16 +16,14 @@ export interface Category {
 @Injectable()
 export class TaskService {
   data: Array<Task> = [];
-  categories: Array<Category> = [];
-  colors: string[] = ['bg-red-400' , 'bg-green-400' , 'bg-indigo-400' , 'bg-yellow-400' , 'bg-orange-400' , 'bg-blue-400'];
   taskIndex: number = 0;
-  categoryIndex: number = 0;
 
-  addTask(text: string){
+  addTask(text: string, categoryId: number){
     this.data.unshift({
       id: this.taskIndex,
       task: text,
-      isDone: false
+      isDone: false,
+      categoryId: categoryId
     });
     this.taskIndex++
   } 
@@ -43,14 +42,11 @@ export class TaskService {
     this.data[index].isDone = !this.data[index].isDone;
   }
 
-  addCategory(text: string){
-    this.categories.unshift({
-      id: this.categoryIndex,
-      title: text,
-      color: this.colors[this.getRandomInt(6)]
-    });
-    this.categoryIndex++
-  } 
+  getTasksByCategoryId(id: number) {
+    return this.data.filter((value) => {
+      return value.categoryId == id;
+    })
+  }
 
   getTasksById(ids:number[]){
     let tasks: number[] = [];
@@ -62,21 +58,4 @@ export class TaskService {
     }
   }
 
-  // deleteGategory(id: number){
-  //   let index = this.data.findIndex(value => {
-  //     return value.id == id;
-  //   });
-  //   this.data = this.data.filter(value => {return value.id != this.data[index].id});
-  // }
-
-  // enterGategory(id: number){
-  //   let index = this.data.findIndex(value => {
-  //     return value.id == id;
-  //   });
-  //   this.data[index].isDone = !this.data[index].isDone;
-  // }
-
-  private getRandomInt(max: number) {
-    return Math.floor(Math.random() * max);
-  }
 }

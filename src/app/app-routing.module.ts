@@ -5,10 +5,7 @@ import { TasksComponent } from './components/tasks/tasks.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/main', pathMatch: 'full'},
-  {path: 'main', component: MainComponent, children: [
-    {path: 'task', redirectTo: '/main', pathMatch: 'full'},
-    {path: 'task/:categoryId', component:TasksComponent },
-  ]}
+  {path: 'main', component: MainComponent}
 ];
 
 @NgModule({

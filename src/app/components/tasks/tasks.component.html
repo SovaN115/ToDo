@@ -3,8 +3,8 @@
         <input (keydown)="addTask($event)" [formControl]="formInput" placeholder="Мне нужно..." type="text" class="rounded-md text-lg w-full px-2 py-1 focus:outline-none">
         <div class="rounded-3xl min-w-[16px] h-4 border-2  border-red-500"></div>
     </div>
-    <div *ngFor="let task of taskS.data" class="w-full flex items-center hover:bg-slate-50 cursor-pointer" (click)="doTask(task.id)">
-        <span [ngClass]="{'line-through text-gray-400':task.isDone}" class="ml-2 text-slate-900 text select-none ">{{task.task}}</span>
+    <div *ngFor="let task of taskss" class="w-full flex items-center hover:bg-slate-50 cursor-pointer">
+        <span (click)="doTask(task.id)" [ngClass]="{'line-through text-gray-400':task.isDone}" class="ml-2 text-slate-900 text select-none ">{{task.task}}</span>
         <div class="rounded-3xl min-w-[16px] h-4 bg-red-500 cursor-pointer ml-auto" (click)="deleteTask(task.id)"></div>
     </div>
 </div>

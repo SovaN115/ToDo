@@ -7,15 +7,16 @@ import { AppComponent } from './app.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { TaskService } from './services/taskService';
-import { GategoryComponent } from './components/gategory/gategory.component';
+import { CategoryComponent} from './components/category/category.component';
 import { MainComponent } from './components/main/main.component';
+import { CategoryService } from './services/categoryService';
 
 @NgModule({
   declarations: [
     AppComponent,
     SideBarComponent,
     TasksComponent,
-    GategoryComponent,
+    CategoryComponent,
     MainComponent
   ],
   imports: [
@@ -23,7 +24,7 @@ import { MainComponent } from './components/main/main.component';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [TaskService],
+  providers: [TaskService, CategoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
